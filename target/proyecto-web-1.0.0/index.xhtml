@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Areas</title>
+    </h:head>
+    <h:body>
+        Areas
+    </h:body>
+    
+    <h:form>
+        <h:dataTable value="#{areaMB.areas}" var="area">
+            <h:column>
+                <f:facet name="header">
+                    Descripción de Áreas
+                </f:facet>
+                <h:outputLabel value="#{area.descripcion}"/>
+            </h:column>
+        </h:dataTable>
+        
+        <h:dataTable value="#{personaMB.personas}" var="persona">
+            <h:column>
+                <f:facet name="header">
+                    Personas
+                </f:facet>
+                <f:facet name="header">
+                    Nombres
+                </f:facet>
+                <h:outputLabel value="#{persona.nombres}"/>
+                <f:facet name="header">
+                    Apellidos
+                </f:facet>
+                <h:outputLabel value="#{persona.apellidos}"/>
+            </h:column>
+        </h:dataTable>
+        
+        <h:dataTable value="#{procesoMB.procesos}" var="proceso">
+            <h:column>
+                <f:facet name="header">
+                    Descripción de Procesos
+                </f:facet>
+                <h:outputLabel value="#{proceso.descripcion}"/>
+            </h:column>
+        </h:dataTable>
+        
+        <h:dataTable value="#{proyectoMB.proyectos}" var="proyecto">
+            <h:column>
+                <f:facet name="header">
+                    Lista de Proyectos
+                </f:facet>
+                <h:outputLabel value="#{proyecto.denominacion}"/>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</html>

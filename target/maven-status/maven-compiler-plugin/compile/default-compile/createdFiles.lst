@@ -1,0 +1,13 @@
+org\proyecto\model\Persona.class
+org\proyecto\model\Proyecto.class
+org\proyecto\JAXRSConfiguration.class
+org\proyecto\managedbeans\PersonaMB.class
+org\proyecto\services\interfaces\AppServices.class
+org\proyecto\managedbeans\ProyectoMB.class
+org\proyecto\config\Constantes.class
+org\proyecto\managedbeans\AreaMB.class
+org\proyecto\services\ejb\AppEjb.class
+org\proyecto\model\Proceso.class
+org\proyecto\resources\JavaEE8Resource.class
+org\proyecto\managedbeans\ProcesoMB.class
+org\proyecto\model\Area.class
