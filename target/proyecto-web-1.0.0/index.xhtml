@@ -2,56 +2,144 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Areas</title>
+        <title>Ingreso de Proyecto</title>
     </h:head>
     <h:body>
-        Areas
+        <center>
+            <p:outputLabel value="Ingreso de Proyectos" style="font-weight: bolder; font-size: 16"/>
+        </center>
     </h:body>
     
     <h:form>
-        <h:dataTable value="#{areaMB.areas}" var="area">
-            <h:column>
-                <f:facet name="header">
-                    Descripción de Áreas
-                </f:facet>
-                <h:outputLabel value="#{area.descripcion}"/>
-            </h:column>
-        </h:dataTable>
         
-        <h:dataTable value="#{personaMB.personas}" var="persona">
-            <h:column>
-                <f:facet name="header">
-                    Personas
-                </f:facet>
-                <f:facet name="header">
-                    Nombres
-                </f:facet>
-                <h:outputLabel value="#{persona.nombres}"/>
-                <f:facet name="header">
-                    Apellidos
-                </f:facet>
-                <h:outputLabel value="#{persona.apellidos}"/>
-            </h:column>
-        </h:dataTable>
+        <center>
+            <p:outputLabel value="ORIGAMI PLANIFICACIÓN 2024"/>
+            <br/>
+            <p:outputLabel value="ESQUEMA DE PROYECTOS"/>
+        </center>
         
-        <h:dataTable value="#{procesoMB.procesos}" var="proceso">
-            <h:column>
-                <f:facet name="header">
-                    Descripción de Procesos
-                </f:facet>
-                <h:outputLabel value="#{proceso.descripcion}"/>
-            </h:column>
-        </h:dataTable>
+        <p:dataTable></p:dataTable>
         
-        <h:dataTable value="#{proyectoMB.proyectos}" var="proyecto">
-            <h:column>
-                <f:facet name="header">
-                    Lista de Proyectos
-                </f:facet>
-                <h:outputLabel value="#{proyecto.denominacion}"/>
-            </h:column>
-        </h:dataTable>
+        <p:outputLabel value="Proceso:"/>
+        <br/>
+        <p:selectOneMenu>
+            <f:selectItem itemLabel="Seleccione"/>
+            <f:selectItems value="#{proyectoMB.procesos}" var="proceso" itemValue="#{proceso}" itemLabel="#{proceso.descripcion}"/>
+        </p:selectOneMenu>
+        <br/>
+        <p:outputLabel value="Area:"/>
+        <br/>
+        <p:selectOneMenu>
+            <f:selectItem itemLabel="Seleccione"/>
+            <f:selectItems value="#{areaMB.areas}" var="area" itemValue="#{area}" itemLabel="#{area.descripcion}"/>
+        </p:selectOneMenu>
+        <br/>
+        <p:outputLabel value="Tipo:"/>
+        <br/>
+        <p:selectOneMenu value="#{proyectoMB.proyecto.tipo}">
+            <f:selectItem itemLabel="Seleccione"/>
+            <f:selectItem itemLabel="GESTION" itemValue="GESTION"/>
+            <f:selectItem itemLabel="INVERSION" itemValue="INVERSION"/>
+        </p:selectOneMenu>
+        <br/>
+        <p:outputLabel value="Recurrente:"/>
+        <br/>
+        <p:selectBooleanCheckbox value="#{proyectoMB.proyecto.recurrente}"/>
+        <br/>
+        <p:outputLabel value="Arrastre:"/>
+        <br/>
+        <p:selectBooleanCheckbox value="#{proyectoMB.proyecto.arrastre}"/>
+        <br/>
+        <p:outputLabel value="Denominación del Proyecto:"/>
+        <br/>
+        <p:inputText value="#{proyectoMB.proyecto.denominacion}"/>
+        <br/>
+        <p:outputLabel value="Detalle en caso de Arrastre:"/>
+        <br/>
+        <p:inputText value="#{proyectoMB.proyecto.detalleArrastre}"/>
+        <br/>
+        
+        <center><p:outputLabel value="DATOS GENERALES"/></center>
+        
+        <p:outputLabel value="Responsable:"/>
+        <p:selectOneMenu>
+            <f:selectItem itemLabel="Seleccione"/>
+            <f:selectItems value="#{personaMB.personas}" var="persona" itemValue="#{persona}" itemLabel="#{persona.nombres} #{persona.apellidos}"/>
+        </p:selectOneMenu>
+        <br/>
+        
+        <p:outputLabel value="Identificación:"/>
+        <p:inputText value=""/>
+        <br/>
+        
+        <p:outputLabel value="Objetivo General:"/>
+        <p:inputText value="#{proyectoMB.proyecto.objetivo}"/>
+        <br/>
+        
+        <p:outputLabel value="Descripción Breve:"/>
+        <p:inputTextarea value="#{proyectoMB.proyecto.decripcionBreve}" />
+        <br/>
+        
+        <p:outputLabel value="Costo estimado:"/>
+        <p:inputText value="#{proyectoMB.proyecto.costoProyecto}" />
+        <br/>
+        
+        <p:outputLabel value="Fecha Inicio:"/>
+        <p:datePicker value="#{proyectoMB.proyecto.fechaInicio}"/>
+        <br/>
+        
+        <p:outputLabel value="Fecha Fin:"/>
+        <p:datePicker value="#{proyectoMB.proyecto.fechaFin}"/>
+        <br/>
+        <br/>
+        <br/>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+<!--        <p:dataTable value="# {areaMB.areas}" var="area">
+            <p:column headerText="Areas">
+                <h:outputLabel value="# {area.descripcion}"/>
+            </p:column>
+        </p:dataTable>
+        
+        <p:dataTable value="# {personaMB.personas}" var="persona">
+            <p:column headerText="Identificación">
+                <h:outputLabel value="# {persona.identifiacion}"/>
+            </p:column>
+            <p:column headerText="Nombres">
+                <h:outputLabel value="# {persona.nombres}"/>
+            </p:column>
+            <p:column headerText="Apellidos">
+                <h:outputLabel value="# {persona.apellidos}"/>
+            </p:column>
+        </p:dataTable>
+        
+        <p:dataTable value="# {procesoMB.procesos}" var="proceso">
+            <p:column headerText="Procesos">
+                <h:outputLabel value="# {proceso.descripcion}"/>
+            </p:column>
+        </p:dataTable>
+        
+        <p:dataTable value="# {proyectoMB.proyectos}" var="proyecto">
+            <p:column headerText="Proyectos">
+                <h:outputLabel value="# {proyecto.denominacion}"/>
+            </p:column>
+        </p:dataTable>-->
     </h:form>
 </html>
